@@ -33,6 +33,7 @@ function doPost(e) {
 
     const row = {};
     Object.keys(LIMITS).forEach(function (key) { row[key] = safeCell(String(data[key] || "").slice(0, LIMITS[key])); });
+    row.phone = "'" + row.phone.replace(/^'/, "");          // 存成文字，否則開頭的 0 會被試算表吃掉
     row.submitted_at = Utilities.formatDate(new Date(), "Asia/Taipei", "yyyy-MM-dd HH:mm:ss");
     row.file_url = data.file_base64 ? saveFile(data, row.name) : "";
 
