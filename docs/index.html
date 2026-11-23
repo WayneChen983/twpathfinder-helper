@@ -118,13 +118,9 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
       <p class="hint">PDF 或 Word，10 MB 以內。請先移除身分證字號、地址等不需要的個資。</p>
       <input id="draft" name="draft" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
 
-      <h2 style="margin-top:1.8rem">資料使用說明</h2>
-      <div class="notice-box">
-        <p style="margin:0"><b id="n-owner"></b>會蒐集你在這張表單填寫的姓名、手機、Email、出生年、學經歷與背景，以及你選擇上傳的申請書檔案，用途如下：</p>
-        <ul id="n-purposes"></ul>
-        <p style="margin:0">資料存放在 Google 試算表與 Google 雲端硬碟，保存到你要求刪除為止。你可以隨時來信 <a id="n-contact"></a> 要求查詢、更正或刪除。不提供這些資料就無法完成登記，但你仍然可以直接到 GitHub 使用這個工具，不需要登記。</p>
-      </div>
-      <label class="check"><input type="checkbox" id="agree" required><span>我已閱讀並同意上面的資料使用說明。</span></label>
+      <h2 style="margin-top:1.8rem">Privacy Notice</h2>
+      <p class="notice-box">送出前請先閱讀 <a href="privacy.html" target="_blank" rel="noopener"><b>Privacy Notice（資料使用說明）</b></a>。重點：你填寫的資料與上傳的申請書會用來與你聯繫、改進這個工具，以及訓練 AI 模型；你可以隨時要求刪除。</p>
+      <label class="check"><input type="checkbox" id="agree" required><span>我已閱讀並同意 <a href="privacy.html" target="_blank" rel="noopener">Privacy Notice</a>。</span></label>
       <label class="check" id="minor-box" hidden><input type="checkbox" id="guardian"><span>我未滿 18 歲，我的法定代理人（父母或監護人）已閱讀並同意這份說明。</span></label>
 
       <div class="hp" aria-hidden="true"><label>請不要填寫這一欄<input name="website" tabindex="-1" autocomplete="off"></label></div>
@@ -169,13 +165,7 @@ const CONFIG = {
   // Google Apps Script 網頁應用程式的網址（設定方式見 form-backend/README.md）。留空時為預覽模式，不會送出資料。
   ENDPOINT: "https://script.google.com/macros/s/AKfycbx_K2cGAY1U_VU4D2gTcdyv3zOVVJGiNUWXPsIrDYeooI_C8rXrq1_Moe3kxnc7uZOTpg/exec",
   REPO_URL: "https://github.com/WayneChen983/twpathfinder-helper",
-  OWNER: "本專案作者 WayneChen983",
-  CONTACT_EMAIL: "tw466376@gmail.com",                         // 使用者要求查詢、更正、刪除資料時的聯絡信箱（必填）
-  PURPOSES: [                                // 蒐集資料的用途。有變動就要改這裡，內容必須與實際做法一致
-    "與你聯繫，提供申請相關的協助與通知",
-    "了解使用者的背景，用來改進這個工具與寫作知識庫",
-    "訓練與改進 AI 模型（包含你上傳的申請書內容）",
-  ],
+  // 資料使用說明的全文在 docs/privacy.html。用途或聯絡信箱有變動時，兩個檔案要一起改。
   MAX_FILE_MB: 10,
 };
 // 送出後顯示給每個人的固定指令
@@ -189,11 +179,6 @@ const PROMPT = `請幫我使用「青年百億申請幫手」準備申請書。
 // =======================================================================
 
 const $ = (id) => document.getElementById(id);
-$("n-owner").textContent = CONFIG.OWNER;
-CONFIG.PURPOSES.forEach((p) => { const li = document.createElement("li"); li.textContent = p; $("n-purposes").append(li); });
-const contact = $("n-contact");
-if (CONFIG.CONTACT_EMAIL) { contact.textContent = CONFIG.CONTACT_EMAIL; contact.href = "mailto:" + CONFIG.CONTACT_EMAIL; }
-else { contact.replaceWith(document.createTextNode("（聯絡信箱尚未設定）")); }
 $("prompt").textContent = PROMPT;
 $("repo").textContent = CONFIG.REPO_URL; $("repo").href = CONFIG.REPO_URL;
 
@@ -228,7 +213,7 @@ form.addEventListener("submit", async (ev) => {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return showError("Email 的格式不對。", $("email"));
   const a = age();
   if (a === null || a < 15 || a > 35) return showError("出生年看起來不對，請輸入西元年，例如 2003。", $("birth_year"));
-  if (!$("agree").checked) return showError("需要勾選同意資料使用說明才能送出。", $("agree"));
+  if (!$("agree").checked) return showError("需要勾選同意 Privacy Notice 才能送出。", $("agree"));
   if (a < 18 && !$("guardian").checked) return showError("未滿 18 歲需要法定代理人同意，請勾選確認。", $("guardian"));
   data.guardian_consent = a < 18 ? "是" : "不適用";
   data.website = form.elements.website.value;   // 防機器人：真人不會填這一欄
