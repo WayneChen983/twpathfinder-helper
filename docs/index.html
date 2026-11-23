@@ -65,7 +65,7 @@
       </div>
       <div class="form-section"><h2>初版申請書</h2>
       <label for="draft">上傳檔案<span class="opt">選填</span></label>
-      <p class="hint">PDF 或 Word，10 MB 以內。請先移除身分證字號、地址等不需要的個資。</p>
+      <p class="hint">PDF 或 Word，10 MB 以內。請先移除身分證字號、地址等不需要的個資。PDF 太大的話，可以先到 <a href="https://www.ilovepdf.com/zh-tw/compress_pdf" target="_blank" rel="noopener">iLovePDF</a> 壓縮（第三方網站）。</p>
       <input id="draft" name="draft" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
 
       </div>
@@ -172,7 +172,7 @@ form.addEventListener("submit", async (ev) => {
 
   const file = $("draft").files[0];
   if (file) {
-    if (file.size > CONFIG.MAX_FILE_MB * 1024 * 1024) return showError("檔案超過 " + CONFIG.MAX_FILE_MB + " MB，請壓縮後再上傳，或先不附檔案。", $("draft"));
+    if (file.size > CONFIG.MAX_FILE_MB * 1024 * 1024) return showError("檔案超過 " + CONFIG.MAX_FILE_MB + " MB。PDF 可以先到欄位說明裡的 iLovePDF 壓縮後再上傳，或先不附檔案。", $("draft"));
     if (!/\.(pdf|docx)$/i.test(file.name)) return showError("申請書檔案只接受 PDF 或 Word（.docx）。", $("draft"));
   }
 
