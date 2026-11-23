@@ -4,61 +4,72 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Notice | Pathfinder Application Helper</title>
-<style>
-:root { --bg: #f6f1e8; --surface: #fffdf9; --ink: #22262a; --muted: #5f676b; --line: #e3dacb; --brand: #1c6b3c;
-  --grad: linear-gradient(90deg, #9aeff3, #baf2d1); --tint: #e6f5ee; --bar: #2f9a63; }
-@media (prefers-color-scheme: dark) {
-  :root { --bg: #15181a; --surface: #1d2224; --ink: #eceae5; --muted: #a3acab; --line: #2e3536; --brand: #7fd6a4;
-    --grad: linear-gradient(90deg, #5fcfd4, #8fdcb0); --tint: #1b3229; --bar: #6fd39c; }
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.75 "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; }
-a { color: var(--brand); text-underline-offset: 3px; }
-.bar { height: 4px; background: var(--grad); }
-main { max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
-h1 { font-family: Georgia, "Noto Serif TC", serif; font-size: 1.8rem; line-height: 1.3; margin: .8rem 0 .2rem; }
-h2 { font-size: 1.1rem; margin: 1.6rem 0 .3rem; padding-left: .7rem; border-left: 5px solid var(--bar); line-height: 1.4; }
-.muted { color: var(--muted); font-size: .92rem; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem 1.5rem 1.6rem; margin: 1rem 0; }
-.card p, .card li { max-width: 40em; }
-ol, ul { padding-left: 1.3rem; margin: .3rem 0; }
-.jump { display: inline-block; background: var(--tint); border-radius: 99px; padding: .15rem .9rem; font-size: .9rem; text-decoration: none; margin-right: .4rem; }
-</style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<div class="bar"></div>
+<header class="nav">
+  <a class="brand" href="./"><span class="mark" aria-hidden="true"></span>Pathfinder Application Helper</a>
+  <nav><a href="./">Sign up</a><a href="https://github.com/WayneChen983/twpathfinder-helper" target="_blank" rel="noopener">GitHub</a></nav>
+</header>
+
 <main>
-  <p><a href="./">← Back to the sign-up form</a></p>
-  <h1>Privacy Notice</h1>
-  <p class="muted">Last updated: 23 November 2026</p>
+  <section class="hero-panel">
+    <span class="badge">Unofficial tool</span>
+    <h1>Privacy Notice</h1>
+    <p class="lead">What the sign-up form collects, what it is used for, and how to get it deleted.</p>
+    <p class="muted">Last updated: 23 November 2026</p>
+  </section>
 
-  <article class="card" id="en" lang="en">
-    <h2>Who collects your data</h2>
-    <p>WayneChen983, the author of this project. This is not an official tool and is not affiliated with the Youth Development Administration, Ministry of Education.</p>
+  <section class="tiles" aria-label="How your data is used, at a glance">
+    <div class="tile t-sky"><span class="n">1</span><h3>Contact you</h3><p>Application-related help and notices.</p></div>
+    <div class="tile t-mint"><span class="n">2</span><h3>Improve the tool</h3><p>Understand who uses it and refine the writing knowledge base.</p></div>
+    <div class="tile t-sand"><span class="n">3</span><h3>Train AI models</h3><p>Including the content of the application draft you upload.</p></div>
+  </section>
 
-    <h2>What is collected</h2>
-    <p>The name, mobile number, email address, birth year, education, experience and background you enter in the sign-up form, and the application draft you choose to upload.</p>
-
-    <h2>How it is used</h2>
-    <ol>
-      <li>To contact you and provide application-related help and notices.</li>
-      <li>To understand users' backgrounds in order to improve this tool and its writing knowledge base.</li>
-      <li>To train and improve AI models. This includes the content of the application draft you upload.</li>
-    </ol>
-    <p>If any new use is added, this notice will be updated first and people who have already signed up will be asked for consent again.</p>
-
-    <h2>Where it is stored and for how long</h2>
-    <p>In a Google Sheets spreadsheet and a Google Drive folder under the author's Google account. It is kept until you ask for it to be deleted.</p>
-
-    <h2>Your rights</h2>
-    <p>You can ask to see, correct or delete your data at any time by emailing <a href="mailto:tw466376@gmail.com">tw466376@gmail.com</a>. Deletion removes your row in the spreadsheet, your uploaded file, and your content from any training data that has been prepared. Content that has already been used to train a model cannot be taken back out of that model.</p>
-
-    <h2>If you choose not to provide your data</h2>
-    <p>You cannot complete the sign-up. You can still use the tool directly from <a href="https://github.com/WayneChen983/twpathfinder-helper">GitHub</a> without signing up.</p>
-
-    <h2>If you are under 18</h2>
-    <p>Your parent or legal guardian must read and agree to this notice before you submit the form.</p>
+  <article class="card doc">
+    <section>
+      <h2>Who collects your data</h2>
+      <p>WayneChen983, the author of this project. This is not an official tool and is not affiliated with the Youth Development Administration, Ministry of Education.</p>
+    </section>
+    <section>
+      <h2>What is collected</h2>
+      <ul class="chips">
+        <li>Name</li><li>Mobile number</li><li>Email address</li><li>Birth year</li><li>Education</li><li>Experience and background</li><li>Application draft, if you upload one</li>
+      </ul>
+    </section>
+    <section>
+      <h2>How it is used</h2>
+      <ol>
+        <li>To contact you and provide application-related help and notices.</li>
+        <li>To understand users' backgrounds in order to improve this tool and its writing knowledge base.</li>
+        <li>To train and improve AI models. This includes the content of the application draft you upload.</li>
+      </ol>
+      <p>If any new use is added, this notice will be updated first and people who have already signed up will be asked for consent again.</p>
+    </section>
+    <section>
+      <h2>Where it is stored and for how long</h2>
+      <p>In a Google Sheets spreadsheet and a Google Drive folder under the author's Google account. It is kept until you ask for it to be deleted.</p>
+    </section>
+    <section>
+      <h2>Your rights</h2>
+      <p>You can ask to see, correct or delete your data at any time. Deletion removes your row in the spreadsheet, your uploaded file, and your content from any training data that has been prepared. Content that has already been used to train a model cannot be taken back out of that model.</p>
+      <div class="callout">
+        <div><b>Contact</b><span>tw466376@gmail.com</span></div>
+        <a class="btn" href="mailto:tw466376@gmail.com?subject=Data%20request%20%E2%80%93%20Pathfinder%20Application%20Helper">Send a request</a>
+      </div>
+    </section>
+    <section>
+      <h2>If you choose not to provide your data</h2>
+      <p>You cannot complete the sign-up. You can still use the tool directly from <a href="https://github.com/WayneChen983/twpathfinder-helper" target="_blank" rel="noopener">GitHub</a> without signing up.</p>
+    </section>
+    <section>
+      <h2>If you are under 18</h2>
+      <p>Your parent or legal guardian must read and agree to this notice before you submit the form.</p>
+    </section>
   </article>
+
+  <p class="center"><a class="btn ghost" href="./">Back to the sign-up form</a></p>
+  <footer>This page is not an official website of the Youth Development Administration. Program details are governed by the latest announcements on the <a href="https://twpathfinder.yda.gov.tw" target="_blank" rel="noopener">official site</a>.</footer>
 </main>
 </body>
 </html>

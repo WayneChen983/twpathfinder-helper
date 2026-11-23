@@ -5,71 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>青年百億申請幫手｜登記</title>
 <meta name="description" content="登記後取得使用說明，在你自己的 Claude Code 或 Codex 裡準備青年百億海外圓夢基金計畫的申請書。非官方工具。">
-<style>
-:root {
-  --bg: #f6f1e8; --surface: #fffdf9; --ink: #22262a; --muted: #5f676b; --line: #e3dacb; --field: #ffffff; --field-line: #b9ad98;
-  --brand: #1c6b3c; --brand-hover: #175a32; --brand-ink: #ffffff; --grad: linear-gradient(90deg, #9aeff3, #baf2d1);
-  --tint-mint: #e6f5ee; --tint-sky: #e4f1f8; --tint-sand: #f6ecd9; --bar-mint: #2f9a63; --bar-sky: #3c8fb8; --bar-sand: #c58a2b;
-  --warn-bg: #fdf1dc; --warn-ink: #6b4a0a; --danger: #a3261f; --code-bg: #1f2a2c; --code-ink: #e8f3ee;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #15181a; --surface: #1d2224; --ink: #eceae5; --muted: #a3acab; --line: #2e3536; --field: #0e1315; --field-line: #5b6a6b;
-    --brand: #7fd6a4; --brand-hover: #96e0b5; --brand-ink: #0c2a19; --grad: linear-gradient(90deg, #5fcfd4, #8fdcb0);
-    --tint-mint: #1b3229; --tint-sky: #1a2d38; --tint-sand: #332a18; --bar-mint: #6fd39c; --bar-sky: #74bfe6; --bar-sand: #e6b45e;
-    --warn-bg: #3a2e12; --warn-ink: #f2d99b; --danger: #f08a82; --code-bg: #0e1315; --code-ink: #dff0e8;
-  }
-}
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.75 "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; }
-a { color: var(--brand); text-underline-offset: 3px; }
-.bar { height: 4px; background: var(--grad); }
-main { max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
-h1 { font-family: "Noto Serif TC", "PMingLiU", serif; font-size: 1.9rem; line-height: 1.35; margin: .6rem 0 .4rem; text-wrap: balance; }
-h2 { font-size: 1.2rem; margin: 0 0 .6rem; padding-left: .75rem; border-left: 5px solid var(--bar-mint); line-height: 1.4; }
-.badge { display: inline-block; font-size: .75rem; font-weight: 700; padding: .05rem .6rem; border-radius: 99px; background: var(--warn-bg); color: var(--warn-ink); }
-.lead { color: var(--muted); font-size: 1.05rem; margin: 0 0 1rem; }
-.muted { color: var(--muted); font-size: .92rem; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem; margin: 1rem 0; }
-.how { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
-.how li { display: flex; gap: .8rem; align-items: flex-start; background: var(--tint-sky); border-left: 5px solid var(--bar-sky); border-radius: 8px; padding: .6rem .9rem; }
-.how b { display: inline-grid; place-items: center; width: 1.7em; height: 1.7em; border-radius: 50%; background: var(--bar-sky); color: #fff; flex: none; font-size: .9rem; }
-label { display: block; font-weight: 600; margin: 1.1rem 0 .3rem; }
-label .opt { font-weight: 400; color: var(--muted); font-size: .88rem; margin-left: .3rem; }
-label .req { color: var(--danger); margin-left: .15rem; }
-.hint { margin: 0 0 .35rem; color: var(--muted); font-size: .88rem; }
-input, select, textarea { font: inherit; color: var(--ink); background: var(--field); border: 1.5px solid var(--field-line); border-radius: 8px; padding: .55rem .7rem; width: 100%; }
-textarea { resize: vertical; line-height: 1.7; }
-input:hover, select:hover, textarea:hover { border-color: var(--bar-mint); }
-input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: none; border-color: var(--bar-mint); box-shadow: 0 0 0 3px rgba(47, 154, 99, .3); }
-input[type=file] { background: var(--tint-sky); border: 1.5px dashed var(--bar-sky); padding: .7rem; }
-input[type=checkbox] { width: 1.15rem; height: 1.15rem; flex: none; margin-top: .35rem; accent-color: var(--brand); }
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
-@media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
-.check { display: flex; gap: .7rem; align-items: flex-start; font-weight: 400; background: var(--tint-sand); border-left: 5px solid var(--bar-sand); border-radius: 8px; padding: .7rem .9rem; margin: .7rem 0; cursor: pointer; }
-.notice-box { background: var(--tint-mint); border-radius: 8px; padding: .9rem 1.1rem; font-size: .93rem; }
-.notice-box ul { margin: .3rem 0; padding-left: 1.2rem; }
-.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--brand); color: var(--brand-ink); border: 1px solid var(--brand); border-radius: 99px;
-  padding: .6rem 1.6rem; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; }
-.btn:hover { background: var(--brand-hover); }
-.btn:disabled { opacity: .55; cursor: progress; }
-.btn.ghost { background: transparent; color: var(--brand); border-color: var(--field-line); }
-.actions { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-top: 1.2rem; }
-.error { background: var(--warn-bg); color: var(--warn-ink); border-radius: 8px; padding: .7rem 1rem; margin-top: 1rem; }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-pre.prompt { background: var(--code-bg); color: var(--code-ink); border-radius: 10px; padding: 1rem 1.1rem; white-space: pre-wrap; word-break: break-word; font: 15px/1.7 ui-monospace, "Cascadia Mono", Consolas, monospace; margin: .6rem 0; }
-.repo { display: block; background: var(--tint-sky); border-left: 5px solid var(--bar-sky); border-radius: 8px; padding: .7rem 1rem; font-weight: 600; word-break: break-all; }
-footer { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
-[hidden] { display: none !important; }
-</style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<div class="bar"></div>
+<header class="nav">
+  <a class="brand" href="./"><span class="mark" aria-hidden="true"></span>青年百億申請幫手</a>
+  <nav><a href="privacy.html">Privacy</a><a href="https://github.com/WayneChen983/twpathfinder-helper" target="_blank" rel="noopener">GitHub</a></nav>
+</header>
 <main>
-  <span class="badge">非官方工具</span>
-  <h1>青年百億申請幫手</h1>
-  <p class="lead">在你自己的 Claude Code 或 Codex 裡，找適合的計畫、寫申請書、輸出符合簡章格式的 Word 檔。先登記，送出後就會看到使用方式。</p>
+  <img class="hero-img" src="hero.svg" alt="" width="1200" height="400">
+  <section class="hero-panel">
+    <span class="badge">非官方工具</span>
+    <h1>找到適合你的圓夢計畫，把申請書寫出來</h1>
+    <p class="lead">在你自己的 Claude Code 或 Codex 裡，找計畫、寫申請書、輸出符合簡章格式的 Word 檔。先登記，送出後就會看到使用方式。</p>
+  </section>
 
   <!-- ============ 表單 ============ -->
   <section id="form-view">
@@ -83,7 +32,7 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
     </div>
 
     <form id="form" class="card" novalidate>
-      <h2>基本資料</h2>
+      <div class="form-section"><h2>基本資料</h2>
       <div class="grid2">
         <div><label for="name">姓名<span class="req">*</span></label>
           <input id="name" name="name" required maxlength="40" autocomplete="name"></div>
@@ -97,7 +46,8 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
       <label for="status">目前身分<span class="req">*</span></label>
       <input id="status" name="status" required maxlength="80" placeholder="例如 大三學生、碩一、工作兩年的工程師">
 
-      <h2 style="margin-top:1.8rem">學經歷與背景</h2>
+      </div>
+      <div class="form-section"><h2>學經歷與背景</h2>
       <p class="muted">寫得越具體越好：做了什麼、你的角色、有什麼數字。這些內容之後可以直接下載成背景檔，交給 AI 助理使用。</p>
       <label for="education">學歷<span class="req">*</span></label>
       <textarea id="education" name="education" rows="3" required maxlength="2000" placeholder="學校、科系、年級或畢業年，可以寫多段"></textarea>
@@ -114,18 +64,22 @@ footer { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
       <label for="gap">你覺得自己還缺什麼<span class="opt">選填</span></label>
       <textarea id="gap" name="gap" rows="3" maxlength="2000" placeholder="例如 沒有國際經驗、不知道怎麼接觸海外單位、經濟上無法自費"></textarea>
 
-      <label for="draft">初版申請書<span class="opt">選填</span></label>
+      </div>
+      <div class="form-section"><h2>初版申請書</h2>
+      <label for="draft">上傳檔案<span class="opt">選填</span></label>
       <p class="hint">PDF 或 Word，10 MB 以內。請先移除身分證字號、地址等不需要的個資。</p>
       <input id="draft" name="draft" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
 
-      <h2 style="margin-top:1.8rem">Privacy Notice</h2>
+      </div>
+      <div class="form-section"><h2>Privacy Notice</h2>
       <p class="notice-box">送出前請先閱讀 <a href="privacy.html" target="_blank" rel="noopener"><b>Privacy Notice（資料使用說明）</b></a>。</p>
       <label class="check"><input type="checkbox" id="agree" required><span>我已閱讀並同意 <a href="privacy.html" target="_blank" rel="noopener">Privacy Notice</a>。</span></label>
       <label class="check" id="minor-box" hidden><input type="checkbox" id="guardian"><span>我未滿 18 歲，我的法定代理人（父母或監護人）已閱讀並同意這份說明。</span></label>
 
-      <div class="hp" aria-hidden="true"><label>請不要填寫這一欄<input name="website" tabindex="-1" autocomplete="off"></label></div>
       <div id="error" class="error" role="alert" hidden></div>
       <div class="actions"><button class="btn" id="submit">送出並取得使用方式</button><span class="muted" id="sending" hidden>傳送中，請稍候…</span></div>
+      </div>
+      <div class="hp" aria-hidden="true"><label>請不要填寫這一欄<input name="website" tabindex="-1" autocomplete="off"></label></div>
     </form>
   </section>
 
