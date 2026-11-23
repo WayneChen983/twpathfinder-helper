@@ -19,7 +19,7 @@ Google 表單不接受從自訂網頁送來的檔案上傳，而且使用者上�
    - 執行身分：我
    - 誰可以存取：所有人
 5. 部署後複製「網頁應用程式網址」（結尾是 `/exec`）。
-6. 打開 `docs/index.html`，把最下方 `CONFIG` 的 `ENDPOINT` 換成剛才的網址。再打開 `docs/privacy.html`，把聯絡信箱與資料用途改成你自己的，中英文兩段都要改，內容必須與你實際的做法一致。登記頁面核取方塊上方的那一句重點摘要也要同步。
+6. 打開 `docs/index.html`，把最下方 `CONFIG` 的 `ENDPOINT` 換成剛才的網址。再打開 `docs/privacy.html`，把聯絡信箱與資料用途改成你自己的，中英文兩段都要改，內容必須與你實際的做法一致。
 7. 到 GitHub repo 的 Settings → Pages，Source 選「Deploy from a branch」，分支選 `main`、資料夾選 `/docs`。幾分鐘後頁面會出現在 `https://<你的帳號>.github.io/<repo 名稱>/`。
 
 之後修改 `Code.gs` 時，要到「部署」→「管理部署作業」建立新版本，網址才會套用新的程式。
