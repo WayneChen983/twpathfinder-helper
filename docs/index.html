@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>青年百億申請幫手｜登記</title>
+<meta name="description" content="登記後取得使用說明，在你自己的 Claude Code 或 Codex 裡準備青年百億海外圓夢基金計畫的申請書。非官方工具。">
+<style>
+:root {
+  --bg: #f6f1e8; --surface: #fffdf9; --ink: #22262a; --muted: #5f676b; --line: #e3dacb; --field: #ffffff; --field-line: #b9ad98;
+  --brand: #1c6b3c; --brand-hover: #175a32; --brand-ink: #ffffff; --grad: linear-gradient(90deg, #9aeff3, #baf2d1);
+  --tint-mint: #e6f5ee; --tint-sky: #e4f1f8; --tint-sand: #f6ecd9; --bar-mint: #2f9a63; --bar-sky: #3c8fb8; --bar-sand: #c58a2b;
+  --warn-bg: #fdf1dc; --warn-ink: #6b4a0a; --danger: #a3261f; --code-bg: #1f2a2c; --code-ink: #e8f3ee;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15181a; --surface: #1d2224; --ink: #eceae5; --muted: #a3acab; --line: #2e3536; --field: #0e1315; --field-line: #5b6a6b;
+    --brand: #7fd6a4; --brand-hover: #96e0b5; --brand-ink: #0c2a19; --grad: linear-gradient(90deg, #5fcfd4, #8fdcb0);
+    --tint-mint: #1b3229; --tint-sky: #1a2d38; --tint-sand: #332a18; --bar-mint: #6fd39c; --bar-sky: #74bfe6; --bar-sand: #e6b45e;
+    --warn-bg: #3a2e12; --warn-ink: #f2d99b; --danger: #f08a82; --code-bg: #0e1315; --code-ink: #dff0e8;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.75 "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; }
+a { color: var(--brand); text-underline-offset: 3px; }
+.bar { height: 4px; background: var(--grad); }
+main { max-width: 720px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+h1 { font-family: "Noto Serif TC", "PMingLiU", serif; font-size: 1.9rem; line-height: 1.35; margin: .6rem 0 .4rem; text-wrap: balance; }
+h2 { font-size: 1.2rem; margin: 0 0 .6rem; padding-left: .75rem; border-left: 5px solid var(--bar-mint); line-height: 1.4; }
+.badge { display: inline-block; font-size: .75rem; font-weight: 700; padding: .05rem .6rem; border-radius: 99px; background: var(--warn-bg); color: var(--warn-ink); }
+.lead { color: var(--muted); font-size: 1.05rem; margin: 0 0 1rem; }
+.muted { color: var(--muted); font-size: .92rem; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem; margin: 1rem 0; }
+.how { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
+.how li { display: flex; gap: .8rem; align-items: flex-start; background: var(--tint-sky); border-left: 5px solid var(--bar-sky); border-radius: 8px; padding: .6rem .9rem; }
+.how b { display: inline-grid; place-items: center; width: 1.7em; height: 1.7em; border-radius: 50%; background: var(--bar-sky); color: #fff; flex: none; font-size: .9rem; }
+label { display: block; font-weight: 600; margin: 1.1rem 0 .3rem; }
+label .opt { font-weight: 400; color: var(--muted); font-size: .88rem; margin-left: .3rem; }
+label .req { color: var(--danger); margin-left: .15rem; }
+.hint { margin: 0 0 .35rem; color: var(--muted); font-size: .88rem; }
+input, select, textarea { font: inherit; color: var(--ink); background: var(--field); border: 1.5px solid var(--field-line); border-radius: 8px; padding: .55rem .7rem; width: 100%; }
+textarea { resize: vertical; line-height: 1.7; }
+input:hover, select:hover, textarea:hover { border-color: var(--bar-mint); }
+input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: none; border-color: var(--bar-mint); box-shadow: 0 0 0 3px rgba(47, 154, 99, .3); }
+input[type=file] { background: var(--tint-sky); border: 1.5px dashed var(--bar-sky); padding: .7rem; }
+input[type=checkbox] { width: 1.15rem; height: 1.15rem; flex: none; margin-top: .35rem; accent-color: var(--brand); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+@media (max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
+.check { display: flex; gap: .7rem; align-items: flex-start; font-weight: 400; background: var(--tint-sand); border-left: 5px solid var(--bar-sand); border-radius: 8px; padding: .7rem .9rem; margin: .7rem 0; cursor: pointer; }
+.notice-box { background: var(--tint-mint); border-radius: 8px; padding: .9rem 1.1rem; font-size: .93rem; }
+.notice-box ul { margin: .3rem 0; padding-left: 1.2rem; }
+.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--brand); color: var(--brand-ink); border: 1px solid var(--brand); border-radius: 99px;
+  padding: .6rem 1.6rem; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; }
+.btn:hover { background: var(--brand-hover); }
+.btn:disabled { opacity: .55; cursor: progress; }
+.btn.ghost { background: transparent; color: var(--brand); border-color: var(--field-line); }
+.actions { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-top: 1.2rem; }
+.error { background: var(--warn-bg); color: var(--warn-ink); border-radius: 8px; padding: .7rem 1rem; margin-top: 1rem; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+pre.prompt { background: var(--code-bg); color: var(--code-ink); border-radius: 10px; padding: 1rem 1.1rem; white-space: pre-wrap; word-break: break-word; font: 15px/1.7 ui-monospace, "Cascadia Mono", Consolas, monospace; margin: .6rem 0; }
+.repo { display: block; background: var(--tint-sky); border-left: 5px solid var(--bar-sky); border-radius: 8px; padding: .7rem 1rem; font-weight: 600; word-break: break-all; }
+footer { color: var(--muted); font-size: .85rem; margin-top: 2rem; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="bar"></div>
+<main>
+  <span class="badge">非官方工具</span>
+  <h1>青年百億申請幫手</h1>
+  <p class="lead">在你自己的 Claude Code 或 Codex 裡，找適合的計畫、寫申請書、輸出符合簡章格式的 Word 檔。先登記，送出後就會看到使用方式。</p>
+
+  <!-- ============ 表單 ============ -->
+  <section id="form-view">
+    <div class="card">
+      <h2>怎麼運作</h2>
+      <ol class="how">
+        <li><b>1</b><span>填寫下面的表單並送出。</span></li>
+        <li><b>2</b><span>畫面會出現一段指令和專案連結。</span></li>
+        <li><b>3</b><span>把指令貼給你的 AI 助理，它會帶你完成之後的每一步。</span></li>
+      </ol>
+    </div>
+
+    <form id="form" class="card" novalidate>
+      <h2>基本資料</h2>
+      <div class="grid2">
+        <div><label for="name">姓名<span class="req">*</span></label>
+          <input id="name" name="name" required maxlength="40" autocomplete="name"></div>
+        <div><label for="phone">手機<span class="req">*</span></label>
+          <input id="phone" name="phone" type="tel" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="0912345678"></div>
+        <div><label for="email">Gmail<span class="req">*</span></label>
+          <input id="email" name="email" type="email" required maxlength="120" autocomplete="email" placeholder="you@gmail.com"></div>
+        <div><label for="birth_year">出生年（西元）<span class="req">*</span></label>
+          <input id="birth_year" name="birth_year" type="number" required min="1990" max="2015" inputmode="numeric" placeholder="2003"></div>
+      </div>
+      <label for="status">目前身分<span class="req">*</span></label>
+      <input id="status" name="status" required maxlength="80" placeholder="例如 大三學生、碩一、工作兩年的工程師">
+
+      <h2 style="margin-top:1.8rem">學經歷與背景</h2>
+      <p class="muted">寫得越具體越好：做了什麼、你的角色、有什麼數字。這些內容之後可以直接下載成背景檔，交給 AI 助理使用。</p>
+      <label for="education">學歷<span class="req">*</span></label>
+      <textarea id="education" name="education" rows="3" required maxlength="2000" placeholder="學校、科系、年級或畢業年，可以寫多段"></textarea>
+      <label for="experience">經歷<span class="req">*</span></label>
+      <textarea id="experience" name="experience" rows="6" required maxlength="6000" placeholder="實習、工作、競賽、社團、志工、專案、創業"></textarea>
+      <label for="skills">專長與技能<span class="opt">選填</span></label>
+      <textarea id="skills" name="skills" rows="2" maxlength="1500"></textarea>
+      <label for="interests">興趣與關注的議題<span class="opt">選填</span></label>
+      <textarea id="interests" name="interests" rows="2" maxlength="1500" placeholder="例如 AI 教育、永續、原民文化、運動科學"></textarea>
+      <label for="languages">語言能力<span class="opt">選填</span></label>
+      <input id="languages" name="languages" maxlength="200" placeholder="例如 英語 多益 785；沒有檢定也可以描述程度">
+      <label for="target">想申請的計畫<span class="opt">選填</span></label>
+      <input id="target" name="target" maxlength="200" placeholder="計畫編號或名稱；還沒決定可以留空">
+      <label for="gap">你覺得自己還缺什麼<span class="opt">選填</span></label>
+      <textarea id="gap" name="gap" rows="3" maxlength="2000" placeholder="例如 沒有國際經驗、不知道怎麼接觸海外單位、經濟上無法自費"></textarea>
+
+      <label for="draft">初版申請書<span class="opt">選填</span></label>
+      <p class="hint">PDF 或 Word，10 MB 以內。請先移除身分證字號、地址等不需要的個資。</p>
+      <input id="draft" name="draft" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+
+      <h2 style="margin-top:1.8rem">資料使用說明</h2>
+      <div class="notice-box">
+        <p style="margin:0"><b id="n-owner"></b>會蒐集你在這張表單填寫的姓名、手機、Email、出生年、學經歷與背景，以及你選擇上傳的申請書檔案，用途如下：</p>
+        <ul id="n-purposes"></ul>
+        <p style="margin:0">資料存放在 Google 試算表與 Google 雲端硬碟，保存到你要求刪除為止。你可以隨時來信 <a id="n-contact"></a> 要求查詢、更正或刪除。不提供這些資料就無法完成登記，但你仍然可以直接到 GitHub 使用這個工具，不需要登記。</p>
+      </div>
+      <label class="check"><input type="checkbox" id="agree" required><span>我已閱讀並同意上面的資料使用說明。</span></label>
+      <label class="check" id="minor-box" hidden><input type="checkbox" id="guardian"><span>我未滿 18 歲，我的法定代理人（父母或監護人）已閱讀並同意這份說明。</span></label>
+
+      <div class="hp" aria-hidden="true"><label>請不要填寫這一欄<input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <div class="actions"><button class="btn" id="submit">送出並取得使用方式</button><span class="muted" id="sending" hidden>傳送中，請稍候…</span></div>
+    </form>
+  </section>
+
+  <!-- ============ 送出後 ============ -->
+  <section id="done-view" hidden>
+    <div class="card">
+      <h2 id="done-title" tabindex="-1">登記完成，接下來這樣做</h2>
+      <ol class="how">
+        <li><b>1</b><span>在電腦上開啟 Claude Code 或 Codex。還沒安裝的話，先依官方說明安裝其中一個。</span></li>
+        <li><b>2</b><span>把下面這段指令整段複製，貼給它。</span></li>
+        <li><b>3</b><span>照它的引導一步一步做。你的資料會留在自己的電腦上。</span></li>
+      </ol>
+    </div>
+    <div class="card">
+      <h2>貼給 AI 助理的指令</h2>
+      <pre class="prompt" id="prompt"></pre>
+      <div class="actions"><button class="btn" id="copy" type="button">複製指令</button><span class="muted" id="copied" aria-live="polite"></span></div>
+    </div>
+    <div class="card">
+      <h2>專案連結</h2>
+      <a class="repo" id="repo" target="_blank" rel="noopener"></a>
+      <p class="muted">使用說明、範例和所有原始碼都在這裡。</p>
+    </div>
+    <div class="card">
+      <h2>把剛才填的背景帶過去</h2>
+      <p class="muted">下載這個檔案，等 AI 助理建立好資料夾後，放進專案的 <code>my/</code> 資料夾，就不用重新輸入一次。檔案只包含學經歷與背景，不含姓名、電話和 Email。</p>
+      <div class="actions"><button class="btn ghost" id="download" type="button">下載 profile.md</button></div>
+    </div>
+  </section>
+
+  <footer>本頁不是教育部青年發展署的官方網站。計畫的資格、日期、名額與經費以<a href="https://twpathfinder.yda.gov.tw" target="_blank" rel="noopener">官網</a>最新公告為準。</footer>
+</main>
+
+<script>
+// ======================= 設定：上線前請修改這一段 =======================
+const CONFIG = {
+  // Google Apps Script 網頁應用程式的網址（設定方式見 form-backend/README.md）。留空時為預覽模式，不會送出資料。
+  ENDPOINT: "",
+  REPO_URL: "https://github.com/WayneChen983/twpathfinder-helper",
+  OWNER: "本專案作者 WayneChen983",
+  CONTACT_EMAIL: "",                         // 使用者要求查詢、更正、刪除資料時的聯絡信箱（必填）
+  PURPOSES: [                                // 蒐集資料的用途。有變動就要改這裡，內容必須與實際做法一致
+    "與你聯繫，提供申請相關的協助與通知",
+    "了解使用者的背景，用來改進這個工具與寫作知識庫",
+    "訓練與改進 AI 模型（包含你上傳的申請書內容）",
+  ],
+  MAX_FILE_MB: 10,
+};
+// 送出後顯示給每個人的固定指令
+const PROMPT = `請幫我使用「青年百億申請幫手」準備申請書。
+
+1. 把這個專案下載到我的電腦：git clone ${CONFIG.REPO_URL}.git
+2. 進入 twpathfinder-helper 資料夾，閱讀 AGENTS.md。
+3. 依照 workflows/0_setup.md 帶我完成第一次設定，之後一步一步引導我找計畫、訪談、撰寫申請書，最後產生 Word 檔。
+
+請全程使用繁體中文，需要執行的指令由你來執行。`;
+// =======================================================================
+
+const $ = (id) => document.getElementById(id);
+$("n-owner").textContent = CONFIG.OWNER;
+CONFIG.PURPOSES.forEach((p) => { const li = document.createElement("li"); li.textContent = p; $("n-purposes").append(li); });
+const contact = $("n-contact");
+if (CONFIG.CONTACT_EMAIL) { contact.textContent = CONFIG.CONTACT_EMAIL; contact.href = "mailto:" + CONFIG.CONTACT_EMAIL; }
+else { contact.replaceWith(document.createTextNode("（聯絡信箱尚未設定）")); }
+$("prompt").textContent = PROMPT;
+$("repo").textContent = CONFIG.REPO_URL; $("repo").href = CONFIG.REPO_URL;
+
+const FIELDS = ["name", "phone", "email", "birth_year", "status", "education", "experience", "skills", "interests", "languages", "target", "gap"];
+const form = $("form");
+
+// 未滿 18 歲時顯示法定代理人同意
+const age = () => { const y = parseInt($("birth_year").value, 10); return y ? new Date().getFullYear() - y : null; };
+$("birth_year").addEventListener("input", () => { const a = age(); $("minor-box").hidden = !(a !== null && a < 18); });
+
+const showError = (msg, el) => { const e = $("error"); e.textContent = msg; e.hidden = false; if (el) el.focus(); };
+
+const readFile = (file) => new Promise((resolve, reject) => {
+  const r = new FileReader();
+  r.onload = () => resolve(String(r.result).split(",")[1]);
+  r.onerror = () => reject(new Error("檔案讀取失敗"));
+  r.readAsDataURL(file);
+});
+
+let submitted = null;
+
+form.addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  $("error").hidden = true;
+  const data = {};
+  for (const k of FIELDS) data[k] = form.elements[k].value.trim();
+
+  for (const k of ["name", "phone", "email", "birth_year", "status", "education", "experience"]) {
+    if (!data[k]) return showError("還有必填欄位沒有填。", form.elements[k]);
+  }
+  if (!/^(\+886|0)9\d{8}$/.test(data.phone.replace(/[\s-]/g, ""))) return showError("手機號碼的格式不對，請輸入 09 開頭的十碼。", $("phone"));
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return showError("Email 的格式不對。", $("email"));
+  const a = age();
+  if (a === null || a < 15 || a > 35) return showError("出生年看起來不對，請輸入西元年，例如 2003。", $("birth_year"));
+  if (!$("agree").checked) return showError("需要勾選同意資料使用說明才能送出。", $("agree"));
+  if (a < 18 && !$("guardian").checked) return showError("未滿 18 歲需要法定代理人同意，請勾選確認。", $("guardian"));
+  data.guardian_consent = a < 18 ? "是" : "不適用";
+  data.website = form.elements.website.value;   // 防機器人：真人不會填這一欄
+
+  const file = $("draft").files[0];
+  if (file) {
+    if (file.size > CONFIG.MAX_FILE_MB * 1024 * 1024) return showError("檔案超過 " + CONFIG.MAX_FILE_MB + " MB，請壓縮後再上傳，或先不附檔案。", $("draft"));
+    if (!/\.(pdf|docx)$/i.test(file.name)) return showError("申請書檔案只接受 PDF 或 Word（.docx）。", $("draft"));
+  }
+
+  $("submit").disabled = true; $("sending").hidden = false;
+  try {
+    if (file) { data.file_name = file.name; data.file_type = file.type; data.file_base64 = await readFile(file); }
+    if (CONFIG.ENDPOINT) {
+      // 用 text/plain 送出 JSON，避免瀏覽器先發預檢請求（Apps Script 不處理預檢）
+      const resp = await fetch(CONFIG.ENDPOINT, { method: "POST", body: JSON.stringify(data) });
+      const result = await resp.json();
+      if (!result.ok) throw new Error(result.error || "伺服器沒有接受這筆資料");
+    }
+    submitted = data;
+    $("form-view").hidden = true; $("done-view").hidden = false;
+    if (!CONFIG.ENDPOINT) $("done-title").textContent = "預覽模式：資料沒有送出。以下是送出後會看到的畫面";
+    $("done-title").focus(); window.scrollTo(0, 0);
+  } catch (e) {
+    showError("送出失敗：" + e.message + "。請稍後再試一次；如果一直失敗，可以先不附檔案。");
+  } finally {
+    $("submit").disabled = false; $("sending").hidden = true;
+  }
+});
+
+$("copy").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(PROMPT); $("copied").textContent = "已複製"; }
+  catch (_) {
+    const r = document.createRange(); r.selectNodeContents($("prompt"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    $("copied").textContent = "已選取，請按 Ctrl+C 複製";
+  }
+});
+
+// 產生不含聯絡資料的背景檔，格式與專案的 my/profile.md 相同
+$("download").addEventListener("click", () => {
+  const d = submitted || {};
+  const rows = [["出生年（西元）", d.birth_year], ["目前身分", d.status], ["學歷", d.education], ["經歷", d.experience], ["專長與技能", d.skills],
+    ["興趣與關注的議題", d.interests], ["語言能力", d.languages], ["想去的國家或地區", ""], ["可以出國的時間與限制", ""],
+    ["未來想做的事", ""], ["我覺得自己還缺什麼", d.gap]];
+  let md = "# 我的背景\n\n";
+  for (const [k, v] of rows) md += "## " + k + "\n\n" + (v || "（未填）") + "\n\n";
+  if (d.target) md += "## 想申請的計畫\n\n" + d.target + "\n";
+  const url = URL.createObjectURL(new Blob([md], { type: "text/markdown;charset=utf-8" }));
+  const a = document.createElement("a"); a.href = url; a.download = "profile.md"; a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+</script>
+</body>
+</html>

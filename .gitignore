@@ -1,0 +1,14 @@
+# 使用者自己的資料與草稿，永遠不進版本控制
+my/
+private/
+*.extracted.txt
+
+# 官網下載的簡章 PDF 原檔（可用 scripts/fetch_programs.py 重新取得）
+data/prospectus/
+data/programs_raw.json
+
+.env
+__pycache__/
+*.pyc
+~$*.docx
+.DS_Store
