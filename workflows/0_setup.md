@@ -16,7 +16,7 @@
 
 3. 建立資料夾：`my/materials/`、`my/photos/`。
 
-4. 建立背景檔。問使用者有沒有現成的履歷或自傳：
+4. 建立背景檔。如果使用者的訊息裡已經附上「我的背景」（從登記頁面複製來的指令會帶著），直接把那段內容存成 `my/profile.md`，跳到第 5 步，不要再從頭問一次。否則問他有沒有現成的履歷或自傳：
    - 有：請他把檔案放進 `my/materials/`（支援 txt、md、pdf、docx），執行 `python scripts/extract_text.py my/materials`，讀產生的 `*.extracted.txt`，整理成 `my/profile.md`。
    - 沒有：用對話問。一次問兩三題，不要一次丟出整張表。
 
