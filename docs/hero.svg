@@ -68,7 +68,12 @@
 
   <!-- 星點 -->
   <g fill="#1c6b3c" opacity=".55">
-    <circle cx="300" cy="70" r="3"/><circle cx="560" cy="250" r="3"/><circle cx="810" cy="80" r="3"/>
+    <circle cx="360" cy="150" r="3"/><circle cx="560" cy="250" r="3"/><circle cx="810" cy="80" r="3"/>
     <circle cx="1130" cy="230" r="3"/><circle cx="250" cy="300" r="3"/>
+  </g>
+  <!-- 標題文字：計畫名稱（文字，非官方標誌） -->
+  <g font-family="'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif">
+    <text x="60" y="84" font-size="40" font-weight="700" fill="#1c6b3c" letter-spacing="2">青年百億</text>
+    <text x="62" y="120" font-size="21" fill="#4f5a5e" letter-spacing="1">海外圓夢基金計畫</text>
   </g>
 </svg>
